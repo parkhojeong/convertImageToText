@@ -1,9 +1,5 @@
-from django.views.generic import TemplateView
-from django.http import HttpResponse
 from django.shortcuts import render
 import googleAPI
-
-from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt

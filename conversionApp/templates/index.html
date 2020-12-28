@@ -7,13 +7,14 @@
 <body>
 사진 입력 란
 <div class="form-area">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="/" method="post" enctype="multipart/form-data" id="send" name="image_send">
         {% csrf_token %}
 <!--        {{ form.as_p}}-->
 
 
-        <input type="file" name="image" id="document_attachment_doc" /><br>
-        <input id="submit" type="submit" value="변환하기"  />
+        <input type="file" name="image" id="document_attachment_doc" value="convert"/>
+        <br>
+        <input type="submit" id="submit" value="변환하기">
 
         <br>
         <br>
@@ -21,12 +22,33 @@
 </div>
 결과:
 <div class="result-area">
-{{msg}}
+    <tbody>
+        <table class="table table-striped">
+            {% for content in msg %}
+            <tr>
+                <td>{{content}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </tbody>
 </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 const fileInput = document.getElementById("document_attachment_doc");
 window.addEventListener('paste', e => {
   fileInput.files = e.clipboardData.files;
+});
+</script>
+<script>
+$('#submit').click(function(){
+    // 검색 버튼을 눌렀을때의 기능 구현
+});
+
+$('#document_attachment_doc').keypress(function(event){
+     if ( event.which == 13 ) {
+         $('#submit').click();
+         return false;
+     }
 });
 </script>
 <style>

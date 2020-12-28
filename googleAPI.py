@@ -12,7 +12,7 @@ def orc_kor_eng(image_file):
     response = client.text_detection(image=image)
     labels = response.text_annotations
     res = ''
-    for  label in labels:
+    for label in labels:
         res += label.description + '\n'
 
     return res

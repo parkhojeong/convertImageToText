@@ -13,4 +13,6 @@ def index(request):
 
     elif request.method == "POST":
         res = googleAPI.orc_kor_eng(request.FILES['image'].file)
+        res = res.split('\n')
+        res = res[:len(res) // 2]
         return render(request,'index.html',{'msg': res})

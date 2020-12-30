@@ -10,13 +10,9 @@ def orc_kor_eng(image_file):
 
     image = types.Image(content=content)
     response = client.text_detection(image=image)
-    labels = response.text_annotations
-    res = ''
-    for  label in labels:
-        res += label.description + '\n'
+    res = response.text_annotations[0].description
 
-    return res
-
+    return
 client = vision.ImageAnnotatorClient()
 
 

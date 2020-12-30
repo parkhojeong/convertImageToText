@@ -20,7 +20,7 @@
         <br>
     </form>
 </div>
-결과:
+{{start}}
 <div class="result-area">
     <tbody>
         <table class="table table-striped">
@@ -37,18 +37,6 @@
 const fileInput = document.getElementById("document_attachment_doc");
 window.addEventListener('paste', e => {
   fileInput.files = e.clipboardData.files;
-});
-</script>
-<script>
-$('#submit').click(function(){
-    // 검색 버튼을 눌렀을때의 기능 구현
-});
-
-$('#document_attachment_doc').keypress(function(event){
-     if ( event.which == 13 ) {
-         $('#submit').click();
-         return false;
-     }
 });
 </script>
 <style>
